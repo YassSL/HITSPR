@@ -3,14 +3,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-class pgrk_9976 extends LinkAnalysis_9976
+class pgrk extends LinkAnalysis
 {
     private static final double DAMPING_FACTOR = 0.85;
     private List<Double> curValues;
     private List<Double> nextValues;
 
 
-    pgrk_9976(int iterNum, double initialValue, Graph_9976 graph)
+    pgrk(int iterNum, double initialValue, Graph graph)
     {
         super(iterNum, initialValue, graph);
         this.curValues = new ArrayList(Collections.nCopies(graph.getVertexCount(), initialVal));
@@ -90,14 +90,14 @@ class pgrk_9976 extends LinkAnalysis_9976
 
         int iter = Integer.valueOf(args[0]);
         int initialVal = Integer.valueOf(args[1]);
-        final Graph_9976 graph = Graph_9976.buildGraph(args[2]);
+        final Graph graph = Graph.buildGraph(args[2]);
         if (graph.getVertexCount() > 10)
         {
             iter = 0;
             initialVal = -1;
         }
 
-        pgrk_9976 pageRank = new pgrk_9976(iter, initialVal, graph);
+        pgrk pageRank = new pgrk(iter, initialVal, graph);
         pageRank.run();
     }
 }

@@ -1,14 +1,14 @@
 import java.util.List;
 
-public class LinkAnalysis_9976
+public class LinkAnalysis
 {
     protected static final double DAMPING_FACTOR = 0.85;
     protected int iterNum;
     protected Double initialVal;
     protected double errorRate;
-    protected Graph_9976 graph;
+    protected Graph graph;
 
-    LinkAnalysis_9976(int iterNum, double initialVal, Graph_9976 graph)
+    LinkAnalysis(int iterNum, double initialVal, Graph graph)
     {
         this.iterNum = iterNum;
         this.initialVal = initialVal >= 0 ? initialVal :  1 / Math.pow(graph.getVertexCount(), 1 / Math.abs(initialVal));

@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Graph_9976
+public class Graph
 {
     private List<List<Integer>> incomingNodeList;
     private List<List<Integer>> outGoingNodeList;
     private List<Integer> outDegreeList;
 
-    public Graph_9976(int numV)
+    public Graph(int numV)
     {
 
         incomingNodeList = new ArrayList<> (Collections.nCopies(numV, null));
@@ -70,23 +70,23 @@ public class Graph_9976
         return Integer.valueOf(edge[idx]);
     }
 
-    public static Graph_9976 buildGraph(String inputFile) throws IOException
+    public static Graph buildGraph(String inputFile) throws IOException
     {
-        Graph_9976 graph;
+        Graph graph;
         try (final BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(Paths.get(inputFile).toFile()))))
         {
             final String l = br.readLine();
             if (l == null)
                 throw new RuntimeException("Invalid file entry");
 
-            graph = new Graph_9976(Graph_9976.getVertex(l, 0));
+            graph = new Graph(Graph.getVertex(l, 0));
 
 
-            for (int i = 0; i < Graph_9976.getVertex(l, 1); i++)
+            for (int i = 0; i < Graph.getVertex(l, 1); i++)
             {
                 final String line = br.readLine();
-                final int source = Graph_9976.getVertex(line, 0);
-                final int target =  Graph_9976.getVertex(line, 1);
+                final int source = Graph.getVertex(line, 0);
+                final int target =  Graph.getVertex(line, 1);
                 graph.addIncomingEdge(source, target);
                 graph.addOutgoingEdge(target, source);
                 graph.addOutDegreeCount(source);

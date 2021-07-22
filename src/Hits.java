@@ -3,14 +3,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class hits_9976 extends LinkAnalysis_9976
+public class Hits extends LinkAnalysis
 {
     private List<Double> authValues;
     private List<Double> hubValues;
     private List<Double> nextAuthValues;
     private List<Double> nextHubValues;
 
-    hits_9976(int iterNum, double initialValue, Graph_9976 graph)
+    Hits(int iterNum, double initialValue, Graph graph)
     {
         super(iterNum, initialValue, graph);
         this.authValues = new ArrayList(Collections.nCopies(graph.getVertexCount(), initialVal));
@@ -117,14 +117,14 @@ public class hits_9976 extends LinkAnalysis_9976
 
         int iter = Integer.parseInt(args[0]);
         double initialVal = Double.parseDouble(args[1]);
-        final Graph_9976 graph = Graph_9976.buildGraph(args[2]);
+        final Graphƒ graph = Graph.buildGraph(args[2]);
         if (graph.getVertexCount() > 10)
         {
             iter = 0;
             initialVal = -1;
         }
 
-        hits_9976 hits = new hits_9976(iter, initialVal, graph);
+        Hits hits = new Hits(iter, initialVal, graph);
         hits.run();
     }
 }
