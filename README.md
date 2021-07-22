@@ -1,1 +1,1 @@
-# Pagerank
+Implementation of HITS + Pagerank algorithms.
